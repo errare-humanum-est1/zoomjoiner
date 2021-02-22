@@ -43,7 +43,8 @@ for curr_teacher in teacher["teachers"]:
     print(curr_teacher["link"])
     print("")
 #tell user that a link changed
-print("AT LEAST ONE OF THE LINKS HAS CHANGED!")
+if link_changed: print("AT LEAST ONE OF THE LINKS HAS CHANGED!")
+else: print("NO LINK HAS CHANGED")
 #saving the json file
 with open ('teachers.json', 'w') as teacherf:
     json.dump(teacher, teacherf, indent=4)
