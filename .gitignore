@@ -1,2 +1,5 @@
-"C:\.programming\programms\zoomjoiner\js.json"
-"C:\.programming\programms\zoomjoiner\userdata.py"
+js.json
+teachers.json
+userdata.py
+.vscode
+__pycache__
