@@ -1,5 +1,7 @@
-js.json
-teachers.json
-userdata.py
-.vscode
 __pycache__
+.vscode
+
+data.py
+geckodriver.log
+all_teachers_new.json
+tts.json
