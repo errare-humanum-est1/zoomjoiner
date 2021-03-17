@@ -1,10 +1,10 @@
-import data, connection
+import data, internet_connection_checker as conn
 import json
 from edupage_api import *
 from datetime import datetime
 
 
-internet_connection = connection.connect()
+internet_connection = conn.connect()
 print("connected" if internet_connection else "no internet!")
 if not internet_connection: raise ConnectionError("no internet connection")
 
@@ -39,7 +39,6 @@ if data.system() == "Windows":
     now = datetime.datetime.now()
 elif data.system() == "Linux":
     now = datetime.now()
-
 
 while not timetable: 
     for meeting_time in tts ["starttimes"][my_group]:
