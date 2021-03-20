@@ -3,4 +3,5 @@
  
       its not finished, doesnt work
 
-also its hopefully gonna work with windows and linux :O
+also its hopefully gonna work with windows and linux :O 
+(because i'm using linux, but everyone else will be using windows)
