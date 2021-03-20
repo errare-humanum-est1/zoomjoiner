@@ -1,7 +1,12 @@
 # zoomjoiner
- automaticly adds you into your zoom lessons
- 
-      its not finished, doesnt work
 
-also its hopefully gonna work with windows and linux :O 
-(because i'm using linux, but everyone else will be using windows)
+takes a timetable, and connects yyou to your lesson 2 minutes before it starts
+
+prolly wont work woth your system, because its specificly made for my timetable and school, but i may or may not working on making a universal version
+
+# requirements: 
+datetime
+edupage_api
+termcolor
+selenium
+when using windows: pywinauto

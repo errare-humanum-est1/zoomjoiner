@@ -1,11 +1,5 @@
-import os
-import time
-import json
-
-from selenium.webdriver.remote.errorhandler import ErrorCode
+import time, json, platform
 import data
-import platform
-from datetime import datetime
 from selenium import webdriver
 
 def dicttemplate(tn, cn, l): 
@@ -17,8 +11,8 @@ def dicttemplate(tn, cn, l):
         }    
 )
 #get login id
-my_username = data.intranet_tim.username()
-my_password = data.intranet_tim.password()
+my_username = data.userdata.intranet_tim_username
+my_password = data.userdata.intranet_tim_password
 #open teachers json
 with open("tts.json", "r") as teacherf:
     file = json.load(teacherf)
@@ -28,7 +22,7 @@ if platform.system() == "Linux":
 elif platform.system() == "Windows":
     browser = webdriver.Chrome("C:\\.programming\\drivers_extra_data\\chromedriver.exe")
 else: raise NameError("what sys r u running on mate? try installing firefox!")
-browser.get(data.school.url())
+browser.get(data.info.school_website_url())
 time.sleep(3)
 #find id and password
 id_box = browser.find_element_by_name('u')
@@ -60,6 +54,6 @@ for element in teacher_element_list:
         teacherd = dicttemplate(nice_name, call_name, link)
         file["teachers"].append(teacherd)
 # saving the json file
-with open ('all_teachers_new.json', 'w') as teacherf:
+with open ('tts.json', 'w') as teacherf:
     json.dump(file, teacherf, indent=4)
 browser.quit()
