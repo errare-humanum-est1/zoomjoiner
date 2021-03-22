@@ -9,4 +9,4 @@ you can install the requirements from your commandline/ terminal with:
 
 `cd /your directory/`
 and then:
-`pip3 install -r requirements.txt`
+`pip install -r requirements.txt`
