@@ -11,8 +11,8 @@ def dicttemplate(tn, cn, l):
         }    
 )
 #get login id
-my_username = data.userdata.intranet_tim_username
-my_password = data.userdata.intranet_tim_password
+my_username = data.userdata.intranet_username
+my_password = data.userdata.intranet_password
 #open teachers json
 with open("tts.json", "r") as teacherf:
     file = json.load(teacherf)

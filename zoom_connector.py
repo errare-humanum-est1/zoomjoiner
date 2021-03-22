@@ -18,7 +18,7 @@ def check_conn(host='http://google.com'):
     except:
         return False
 
-def progressBar(current, total, barLength = 20, prefix="Progress: ", color="green"):
+def progressBar(current, total, barLength = 20, prefix="Progress: "):
     percent = float(current) * 100 / total
     arrow   = '-' * int(percent/100 * barLength - 1) + '>'
     spaces  = ' ' * (barLength - len(arrow))
@@ -47,6 +47,7 @@ def connect(url):
         errprint = "error: " + e
         print(cl(errprint, "red"))
 
+
 internet_connection = check_conn()
 
 if not internet_connection: 
@@ -60,8 +61,8 @@ application_start_time = dt.now()
 week_days = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]
 lesson_lengh = 40
 my_group = "group 1"
-my_username = userdata.edupage_tim_username
-my_password = userdata.edupage_tim_password
+my_username = userdata.edupage_username
+my_password = userdata.edupage_password
 subdomain = userdata.edupage_subdomain
 
 edupage = Edupage(subdomain, my_username, my_password)
@@ -88,6 +89,7 @@ day_finished = False
 weekend = False
 curr_conn = []
 in_lesson = False
+got_shouted_at = False
 rep = 0
 while True:
     now = dt.now()
@@ -97,8 +99,6 @@ while True:
         os.system("clear")
     
     print("current time: ", now.time())
-    if in_lesson:
-        print("you are currently connected to %s, subject %s" % (curr_conn[0], curr_conn[1]))
 
     if platform.system() == "Linux": 
         os.chdir("/mnt/Windows/.programming/programms/zoomjoiner")
@@ -110,7 +110,9 @@ while True:
         
         for line in windows:
             if "Zoom Meeting" in line:
+                pass
                 in_lesson = True
+        os.system("rm windows.txt")
 
     elif platform.system() == "Windows": 
         os.chdir("C:/.programming/programms/zoomjoiner")
@@ -118,11 +120,23 @@ while True:
 
         for w in windows:
             if "Zoom Meeting" in w.window_text():
+                pass
                 in_lesson = True
+        os.system("del windows.txt")
 
     if in_lesson == True: print(cl("you are currently in a lesson, we will leave you alone", "yellow"))
-
-
+    if in_lesson:
+        try: 
+            print("you are currently connected to %s, subject %s" % (curr_conn[0], curr_conn[1]))
+        except IndexError: 
+            if not got_shouted_at:
+                print(cl("DID YOU CHEAT ON ME?!", "red"))
+                print(cl("YOU'RE CONNECTED BUT DIDN'T CONNECT USING ME?!", "red"))
+                print(cl("I'M BREAKING UP WITH YOU!", "red"))
+                print()
+                print(cl("lmao i should actually add breakup logic", "green"))
+                got_shouted_at = True
+            else: print("you are single")
     times =[]
     lessonpos = 0
     for t in tts["starttimes"][my_group]:
@@ -134,15 +148,16 @@ while True:
         if check_time: break
         lessonpos += 1
     
-    if check_time and week_days[now.weekday() == "friday"]: 
+    if check_time and week_days[now.weekday()] == "friday": 
         last = info.return_last_friday()
         if last == "English":
             lookup_day = "fridayB"
         elif last == "French":
             lookupday = "fridayA"
-    else: lookup_day = week_days[int(now.weekday())] + "A"
-    
-    if week_days[now.weekday() == "saturday"] or week_days[now.weekday() == "sunday"]:
+    elif week_days[now.weekday()] == "friday": lookup_day = week_days[int(now.weekday())] + "A"
+    else: lookup_day = week_days[int(now.weekday())]
+
+    if week_days[now.weekday()] == "saturday" or week_days[now.weekday()] == "sunday":
         print("it's saturday you idiot" if now.weekday() == 6 else "it's saturday you idiot")
         weekend = True
         break
@@ -159,7 +174,7 @@ while True:
                     print("you're being connected to %s, and your lesson is %s" % (teacher, lesson))
                     connect(tea["link"])
         
-            if week_days[now.weekday() == "friday"] and lesson == "English" or lesson == "French":
+            if week_days[now.weekday()] == "friday" and lesson == "English" or lesson == "French":
                 info.set_lastfriday(lesson)
     
     print()
@@ -170,8 +185,8 @@ while True:
     print()
     rep += 1
 
-    for l in range(61):
-        progressBar(l, 60, 50, "Waiting...")
+    for l in range(60):
+        progressBar(l, 60, 60, "Waiting...")
         time.sleep(1)
     if platform.system() == "Linux": os.system("clear")
     elif platform.system() == "Windows": os.system("cls")

@@ -1,0 +1,58 @@
+{
+    "timetable": {
+        "monday": [
+            "a lesson",
+            "another lesson"
+        ],
+        "tuesday": [
+        ],
+        "wednsday": [
+        ],
+        "thursday": [
+        ],
+        "friday": [
+        ]
+    },
+
+    "subjects": {
+        "Physics": "J. Example",
+        "Maths": "E. Wilson",
+        "English": "G. Smith"
+    },
+
+    "starttimes": {
+        "group 1": [
+            "7:30",
+            "9:20",
+            "11:10",
+            "13:40",
+            "15:20"
+        ],
+
+        "group 2": [
+            "8:10",
+            "10:10",
+            "12:00",
+            "14:30",
+            "16:10"
+        ]
+    },
+
+    "teachers": [
+        {
+            "name": "J. Example",
+            "call_name": "Example, John",
+            "link": "link to meeting"
+        },
+        {
+            "name": "E. Wilson",
+            "call_name": "Wilson, Eddie",
+            "link": "link to meeting"
+        },
+        {
+            "name": "G. Smith",
+            "call_name": "Smith, Geraldine",
+            "link": "link to meeting"
+        }
+    ]
+}
