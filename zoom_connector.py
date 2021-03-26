@@ -1,15 +1,12 @@
 try: 
     import data
-    import json, os, time, webbrowser, urllib.request, platform
+    import json, os, time, webbrowser, urllib.request, platform, pyautogui
     from edupage_api import *
     from datetime import datetime as dt, timedelta as td
     from termcolor import colored as cl
     if platform.system() == "Windows":
         from pywinauto import Desktop  # type: ignore (this makes pylance stfu and not show me a warning :) )
 except ImportError: print("PLEASE READ THE REQUIREMENTS, FOUND IN THE README, AND INSTALL THE MODULES LISTED") 
-#access to information python 
-info = data.info()
-userdata = data.userdata
 #defs
 def check_conn(host='http://google.com'):
     try:
@@ -56,7 +53,11 @@ if not internet_connection:
 #loads info json
 with open("tts.json", "r") as f:
     tts = json.load(f)
-#declaring constanf information
+
+#access to information script 
+info = data.info()
+userdata = data.userdata
+#declaring some variables
 application_start_time = dt.now()
 week_days = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]
 
@@ -67,6 +68,14 @@ my_group = "group 1"
 my_username = userdata.edupage_username
 my_password = userdata.edupage_password
 subdomain = userdata.edupage_subdomain
+
+my_path = os.getcwd()
+picture = 'pictures/waiting_for_teacher.png'
+breakup_logic = False
+curr_conn = []
+day_finished = False 
+got_shouted_at = False
+rep = 0
 
 #logs into edupage
 edupage = Edupage(subdomain, my_username, my_password)
@@ -87,12 +96,6 @@ if edupage.is_logged_in:
     timetable = edupage.get_timetable(dates)
     if timetable == None: pass
     else: print("timetable: ", timetable)
-#declaring some variables
-breakup_logic = True
-curr_conn = []
-day_finished = False 
-got_shouted_at = False
-rep = 0
 while True:
     #sets time, clears output
     now = dt.now()
@@ -104,7 +107,7 @@ while True:
         os.system("clear")
     
     print("current time: ", now.time())
-    
+
     #looks up your open windows(linux)
     if platform.system() == "Linux": 
         os.chdir("/mnt/Windows/.programming/programms/zoomjoiner")
@@ -113,7 +116,7 @@ while True:
             windows = f.readlines()
         
         for line in windows:
-            if "Zoom Meeting" in line or "Breakout" in line:
+            if "Zoom Meeting" in line or "Room" in line:
                 in_lesson = True
         os.system("rm windows.txt")
     #looks up your open windows (windows)
@@ -124,6 +127,10 @@ while True:
             #checks if you're in a lesson
             if "Zoom Meeting" in w.window_text() or "Breakout" in w.window_text():
                 in_lesson = True
+
+
+    if pyautogui.locateOnScreen(picture) != None:
+        in_lesson = True
 
     #if in_lesson == True: print(cl("you are currently in a lesson, we will leave you alone", "yellow"))
     if in_lesson:

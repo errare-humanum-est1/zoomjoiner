@@ -3,3 +3,4 @@ edupage_api
 termcolor 
 selenium
 pywinauto
+pyautogui
