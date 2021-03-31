@@ -1,12 +1,26 @@
+import os
 try: 
     import data
-    import json, os, time, webbrowser, urllib.request, platform, pyautogui
+    import json, time, webbrowser, urllib.request, platform, pyautogui
     from edupage_api import *
     from datetime import datetime as dt, timedelta as td
     from termcolor import colored as cl
     if platform.system() == "Windows":
         from pywinauto import Desktop  # type: ignore (this makes pylance stfu and not show me a warning :) )
-except ImportError: print("PLEASE READ THE REQUIREMENTS, FOUND IN THE README, AND INSTALL THE MODULES LISTED") 
+except ImportError:  
+    if platform.system() == "Windows": os.system("pip install -r requirements.txt")
+    elif platform.system() == "Linux": os.system("pip3 install -r requirements.txt")
+    try:
+        import data
+        import json, time, webbrowser, urllib.request, platform, pyautogui
+        from edupage_api import *
+        from datetime import datetime as dt, timedelta as td
+        from termcolor import colored as cl
+        if platform.system() == "Windows":
+            from pywinauto import Desktop  # type: ignore (this makes pylance stfu and not show me a warning :) )
+    except ImportError:
+        print("TRY TO INSTALL THE REQUIREMENTS WITH: pip install -r requirements.txt !!!")
+
 #defs
 def check_conn(host='http://google.com'):
     try:
@@ -51,7 +65,8 @@ if not internet_connection:
     print("no internet!")
     raise ConnectionError("no internet connection")
 #loads info json
-with open("tts.json", "r") as f:
+my_path = os.getcwd()
+with open(my_path + "/tts.json", "r") as f:
     tts = json.load(f)
 
 #access to information script 
@@ -69,7 +84,6 @@ my_username = userdata.edupage_username
 my_password = userdata.edupage_password
 subdomain = userdata.edupage_subdomain
 
-my_path = os.getcwd()
 picture = 'pictures/waiting_for_teacher.png'
 breakup_logic = False
 curr_conn = []
@@ -117,7 +131,8 @@ while True:
         
         for line in windows:
             if "Zoom Meeting" in line or "Room" in line:
-                in_lesson = True
+                pass
+    #            in_lesson = True
         os.system("rm windows.txt")
     #looks up your open windows (windows)
     elif platform.system() == "Windows": 

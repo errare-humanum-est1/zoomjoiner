@@ -18,7 +18,7 @@ shutil.copytree(get_directory, folder)
 if platform.system() == "Linux":
     dr = dir+"/.config/autostart/"
     file = dr+"zoomjoiner.desktop"
-    exec = "Exec=python3 " + dir + "/.zoomjoiner/zoom_connector.py"
+    exec = "Exec=./" + folder + "/start_the_thingy.sh"
     launcher = ["[Desktop Entry]", 
                 "Name=Zoomjoiner", 
                 "Comment=Automatically connects you to your zoom lessons, gets data from given timetable",
