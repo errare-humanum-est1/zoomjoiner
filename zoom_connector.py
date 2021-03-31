@@ -1,4 +1,4 @@
-import os
+import os, platform
 try: 
     import data
     import json, time, webbrowser, urllib.request, platform, pyautogui
@@ -14,7 +14,7 @@ except ImportError:
         import data
         import json, time, webbrowser, urllib.request, platform, pyautogui
         from edupage_api import *
-        from datetime import datetime as dt, timedelta as td
+        from datetime import datetime as dt, timedelta as td 
         from termcolor import colored as cl
         if platform.system() == "Windows":
             from pywinauto import Desktop  # type: ignore (this makes pylance stfu and not show me a warning :) )
