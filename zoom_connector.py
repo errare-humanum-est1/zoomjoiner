@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os, platform
 try: 
     import data
@@ -14,8 +16,8 @@ except ImportError:
         import data
         import json, time, webbrowser, urllib.request, platform, pyautogui
         from edupage_api import *
-        from datetime import datetime as dt, timedelta as td 
-        from termcolor import colored as cl
+        from datetime import datetime as dt, timedelta as td #type:ignore
+        from termcolor import colored as cl #type:ignore
         if platform.system() == "Windows":
             from pywinauto import Desktop  # type: ignore (this makes pylance stfu and not show me a warning :) )
     except ImportError:
@@ -132,7 +134,7 @@ while True:
         for line in windows:
             if "Zoom Meeting" in line or "Room" in line:
                 pass
-    #            in_lesson = True
+                in_lesson = True
         os.system("rm windows.txt")
     #looks up your open windows (windows)
     elif platform.system() == "Windows": 
@@ -226,7 +228,7 @@ while True:
 print()
 print(cl("good news, you're done for today", "green"))
 
-time.sleep(120)
+
 
 #TO-DO
 #edupage support -> not getting outpu from timetable

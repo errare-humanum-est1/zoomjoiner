@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import time, json, platform
 import data
 from selenium import webdriver
