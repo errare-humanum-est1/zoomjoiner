@@ -8,3 +8,4 @@ tts.json
 windows.txt
 launch.json
 .gitattributes
+log*.log

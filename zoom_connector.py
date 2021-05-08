@@ -115,8 +115,7 @@ if not internet_connection:
     print("no internet!")
     raise ConnectionError("no internet connection")
 #loads info json
-my_path = os.getcwd()
-with open(my_path + "/tts.json", "r") as f:
+with open(execdir + "/tts.json", "r") as f:
     tts = json.load(f)
 
 #access to information script 
@@ -164,7 +163,7 @@ if edupage.is_logged_in:
 
 now = dt.now()
 print("start time: ", now.time())
-active = False
+active = True
 while active:
     #sets time, clears output
     now = dt.now()
@@ -283,3 +282,5 @@ while active:
 #tells you that you're done, if you're done
 print()
 print(cl("good news, you're done for today", "green"))
+time.sleep(5)
+os.exit(1)
