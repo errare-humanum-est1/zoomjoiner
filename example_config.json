@@ -1,0 +1,16 @@
+{
+  "intranet_username": "your_username",
+  "intranet_password": "your_password",
+
+  "edupage_subdomain": "your_eduage_subdomain",
+  "edupage_username": "your_edupage_username",
+  "edupage_password": "your_edupage_password",
+
+  "school_website_url": "url_to_your_schools_website_where_the_zoom_links_are_located",
+
+  "group": "group 1",
+
+  "pre_connect": 3,
+  "conn_period": 15,
+  "lesson_lengh": 40
+}

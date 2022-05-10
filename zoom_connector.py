@@ -52,7 +52,7 @@ while True:
     time.sleep(30)
 
 #loads info json
-with open(f"{os.getcwd()}/timetable_teachers.json", "r") as f:
+with open(f"{os.getcwd()}/timetable.json", "r") as f:
     info = json.load(f)
 
 #access to information 

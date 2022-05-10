@@ -1,0 +1,36 @@
+{
+  "starttimes": {
+    "group 1": ["7:30", "9:20", "11:10", "13:40", "15:20"],
+    "group 2": ["8:10", "10:10", "12:00", "14:30", "16:10"]
+  },
+  "timetable": {
+    "monday": ["", "", ""],
+    "tuesday": ["", "", "", "", ""],
+    "wednesday": ["", "", ""],
+    "thursday": ["", "", ""],
+    "friday": ["", "", ""]
+  },
+  "subjects": {
+    "German": "Nast",
+    "NWT": "Otterbach",
+    "Chemistry": "Weth",
+    "Biology": "Weth",
+    "Physics": "Striebich",
+    "Gk": "Bargen",
+    "Ethics": "Held",
+    "Geography": "Liphardt",
+    "Maths": "Risch",
+    "Art": "Baier",
+    "Sports": "Thim",
+    "English": "Tel",
+    "French": "Trepte",
+    "History": "Christ"
+  },
+  "teachers": [
+    {
+      "name": "J. Sins",
+      "call_name": "Sins",
+      "link": "https://zoom.us/j/your_join_codes"
+    }
+  ]
+}
