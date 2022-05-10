@@ -1,0 +1,16 @@
+{
+  "intranet_username": "tim.albers",
+  "intranet_password": "/dQw4w9WgXcQ",
+
+  "edupage_subdomain": "kgn",
+  "edupage_username": "xtialbe5",
+  "edupage_password": "pzyyj1",
+
+  "school_website_url": "https://intern.kreisgymnasium-neuenburg.de/schueler/start",
+
+  "group": "group 1",
+
+  "pre_connect": 3,
+  "conn_period": 15,
+  "lesson_lengh": 40
+}

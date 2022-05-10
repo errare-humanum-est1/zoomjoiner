@@ -1,11 +1,2 @@
-__pycache__
-.vscode
-
-data.py
-geckodriver.log
-all_teachers_new.json
-tts.json
-windows.txt
-launch.json
-.gitattributes
-log*.log
+/.vscode
+/__pycache__
