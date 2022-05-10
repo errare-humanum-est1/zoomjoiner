@@ -4,33 +4,26 @@
     "group 2": ["8:10", "10:10", "12:00", "14:30", "16:10"]
   },
   "timetable": {
-    "monday": ["", "", ""],
+    "monday": ["English", "", "Maths"],
     "tuesday": ["", "", "", "", ""],
     "wednesday": ["", "", ""],
     "thursday": ["", "", ""],
     "friday": ["", "", ""]
   },
   "subjects": {
-    "German": "Nast",
-    "NWT": "Otterbach",
-    "Chemistry": "Weth",
-    "Biology": "Weth",
-    "Physics": "Striebich",
-    "Gk": "Bargen",
-    "Ethics": "Held",
-    "Geography": "Liphardt",
-    "Maths": "Risch",
-    "Art": "Baier",
-    "Sports": "Thim",
-    "English": "Tel",
-    "French": "Trepte",
-    "History": "Christ"
+    "English": "Sins",
+    "Maths": "Danger"
   },
   "teachers": [
     {
       "name": "J. Sins",
       "call_name": "Sins",
       "link": "https://zoom.us/j/your_join_codes"
+    },
+    {
+      "name": "A. Danger",
+      "call_name": "Danger",
+      "link": "https://www.pornhub.com/pornstar/abella-danger"
     }
   ]
 }
