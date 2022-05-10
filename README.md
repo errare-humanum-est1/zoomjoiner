@@ -1,8 +1,17 @@
 # zoomjoiner
 
-takes a timetable, and connects yyou to your lesson 2 minutes before it starts
+rename the example files to config.json and timetable.json
 
-prolly wont work woth your system, because its specificly made for my timetable and school, but i may or may not working on making a universal version
+add your timetable to the timetable list in timetable.json
+add the names of the teachers for the subjects you put in your timetable list
+either add the links to those teachers manually or use the "get_zoom_links" script after specifying your information in the config.json file
+
+change the start times for your lessons in the timetable.json file to the times where your lessons start.
+you can add an unlimited amount of lessons, but you need to make sure to add empty strings if you dont have a lesson in beteen of to lessons
+you dont need to add empty strings at the end of the list
+
+then run the zoom_connector.py script
+it will automatically open the link to your lesson, the browser will transfer into the zoom app on your device
 
 # requirements:
 
